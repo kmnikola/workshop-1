@@ -19,6 +19,7 @@ public class TaskManager {
                     break;
                 case 1:
                     tasks = removeTask(tasks);
+                    System.out.println("Current number of tasks: " + tasks.length);
                     break;
                 case 2:
                     listTasks(tasks);
@@ -107,6 +108,10 @@ public class TaskManager {
     }
 
     public static String[][] removeTask(String[][] tasks) {
+        if (tasks.length == 0) {
+            System.out.println(ConsoleColors.RED + "No tasks to remove" + ConsoleColors.RESET);
+            return tasks;
+        }
         System.out.println("Please select a number to remove");
         int taskNumber;
         while (true) {
